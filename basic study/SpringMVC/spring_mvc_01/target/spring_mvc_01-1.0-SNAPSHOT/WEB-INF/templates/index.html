@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1>index.html</h1>
+<a th:href="@{/abc}">HelloWorld</a>
+<a th:href="@{/hello}">HelloWorld</a>
+
+<form th:action="@{/abc}" method="post">
+    <input type="submit" value="POST">
+</form>
+
+<a th:href="@{/hello?username=admin}">params</a>
+<a th:href="@{/hello(username='admin')}">params</a>
+
+<a th:href="@{/aaa/test/ant}">ant</a>
+
+<a th:href="@{/test/rest/1/root}">占位符</a>
+<hr>
+
+<form th:action="@{/param/pojo}" method="post">
+    UserName:<input type="text" name="username"><br>
+    PassWord:<input type="password" name="password"><br>
+    <input type="submit" value="Login"><br>
+</form>
+
+</body>
+</html>

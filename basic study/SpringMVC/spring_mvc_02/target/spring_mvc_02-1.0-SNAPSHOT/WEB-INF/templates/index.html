@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+
+<form th:action="@{/login}" method="post">
+    UserName:<input type="text" name="username"><br>
+    PassWord:<input type="password" name="password"><br>
+    <input type="submit" value="Login"><br>
+</form>
+
+<a th:href="@{/test/mav}">ModelAndView</a>
+<a th:href="@{/test/model}">Model</a>
+<a th:href="@{/test/modelmap}">ModelMap</a>
+<a th:href="@{/test/map}">Map</a>
+<a th:href="@{/test/session}">Session</a><br>
+<a th:href="@{/test/application}">Application</a><br>
+<hr>
+<a th:href="@{/thymeleaf}">ThymeleafView</a>
+<a th:href="@{/resource}">ResourceView</a>
+<a th:href="@{/redirect}">RedirectView</a>
+
+</body>
+</html>
