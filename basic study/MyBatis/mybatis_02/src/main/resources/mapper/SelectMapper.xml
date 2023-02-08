@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.mapper.SelectMapper">
+
+    <select id="getUsername" resultType="mybatis.pojo.User1">
+        select * from t_user where age = #{id}
+    </select>
+
+
+    <select id="getAllUser" resultType="mybatis.pojo.User1">
+        select * from t_user
+    </select>
+
+    <select id="getCount" resultType="Integer">
+        select count(*) from t_user
+    </select>
+
+    <select id="getUserByAgeToMap" resultType="map">
+        select * from t_user where age = #{id}
+    </select>
+
+    <select id="getAllUserToMap" resultType="map">
+        select * from t_user
+    </select>
+
+</mapper>

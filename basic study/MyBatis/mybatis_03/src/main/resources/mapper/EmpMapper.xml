@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.EmpMapper">
+
+    <resultMap id="empResultMap" type="pojo.Emp">
+        <id column="emp_id" property="empId"></id>
+        <result column="emp_name" property="empName"></result>
+        <result column="age" property="age"></result>
+        <result column="gender" property="gender"></result>
+    </resultMap>
+
+    <select id="getEmpByEmpId" resultMap="empResultMap">
+        select * from t_emp where emp_id = #{empId}
+    </select>
+
+    <resultMap id="empAndDeptResultMap" type="pojo.Emp">
+        <id column="emp_id" property="empId"></id>
+        <result column="emp_name" property="empName"></result>
+        <result column="age" property="age"></result>
+        <result column="gender" property="gender"></result>
+<!--        <result column="dept_id" property="dept.deptId"></result>-->
+<!--        <result column="dept_name" property="dept.deptName"></result>-->
+<!--        <association property="dept" javaType="pojo.Dept">-->
+<!--            <id column="dept_id" property="deptId"></id>-->
+<!--            <result column="dept_name" property="deptName"></result>-->
+<!--        </association>-->
+
+    </resultMap>
+
+    <select id="getEmpAndDeptByEmpId" resultMap="empAndDeptResultMap">
+        select t_emp.*,t_dept.*
+        from t_emp
+        left join t_dept on t_emp.dept_id = t_dept.dept_id
+        where t_emp.emp_id = ${empId}
+    </select>
+
+
+<!--    <select id="getEmpByEmpId" resultType="pojo.Emp">-->
+<!--        select emp_id empId,emp_name empName,age,gender from t_emp where emp_id = #{empId}-->
+<!--        select * from t_emp where emp_id = #{empId}-->
+<!--    </select>-->
+
+</mapper>
